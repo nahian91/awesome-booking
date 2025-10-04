@@ -1,0 +1,7 @@
+.abeg-room-picker{background:#f8f9fa;padding:20px;border-radius:10px;max-width:500px;margin-bottom:20px;}
+.abeg-room-picker__title{font-size:20px;margin-bottom:15px;}
+.abeg-input{width:100%;padding:8px;margin-bottom:10px;border-radius:5px;border:1px solid #ccc;}
+.abeg-btn{background:#007cba;color:#fff;padding:8px 15px;border-radius:5px;cursor:pointer;border:none;}
+.abeg-btn:hover{background:#005a87;}
+.abeg-unavailable a{background:#f44336 !important;color:#fff !important;pointer-events:none;}
+#abeg-room-booking-msg p{margin-top:10px;color:green;}
