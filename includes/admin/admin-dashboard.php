@@ -41,13 +41,19 @@ function abeg_admin_tabs_page() {
                     include ABEG_PLUGIN_PATH.'includes/admin/tabs/settings.php';
                     break;
                 case 'rooms':
-                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/rooms/all-rooms.php';
+                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/rooms.php';
                     break;
                 case 'booking':
-                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/bookings/all-bookings.php';
+                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/booking.php';
                     break;
                 case 'management':
-                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/management/customers.php';
+                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/management.php';
+                    break;
+                case 'shortcodes':
+                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/shortcodes.php';
+                    break;
+                case 'settings':
+                    include ABEG_PLUGIN_PATH.'includes/admin/tabs/settings.php';
                     break;
                 default:
                     include ABEG_PLUGIN_PATH.'includes/admin/tabs/general.php';
