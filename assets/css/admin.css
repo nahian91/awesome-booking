@@ -1,12 +1,2 @@
-.abeg-calendar-table{width:100%;border-collapse:collapse;text-align:center;margin-top:10px;}
-.abeg-calendar-table th,.abeg-calendar-table td{border:1px solid #ddd;padding:10px;}
-.abeg-booked{background:#f44336;color:#fff;font-weight:bold;cursor:not-allowed;}
-.abeg-available{background:#4caf50;color:#fff;font-weight:bold;}
-.abeg-calendar-nav{display:flex;justify-content:space-between;margin-bottom:10px;font-weight:bold;}
-.abeg-calendar-nav a{text-decoration:none;color:#007cba;}
-.abeg-calendar-nav a:hover{text-decoration:underline;}
-.nav-tab-wrapper.abeg-main-tabs{margin-bottom:15px;}
-.nav-tab-wrapper.abeg-sub-tabs{margin-top:10px;margin-bottom:10px;}
-.abeg-box{padding:15px;background:#fff;border:1px solid #ddd;margin-top:10px;border-radius:5px;}
-.abeg-box__title{font-size:18px;margin-bottom:10px;}
-.abeg-error{color:red;}
+.abeg-tabs .nav-tab { margin-right: 5px; }
+.abeg-tab-content { margin-top: 20px; }

@@ -1,35 +1,26 @@
-var abeg_unavailable_dates=[];
-
 jQuery(document).ready(function($){
-    $('#abeg_booking_dates').datepicker({
-        numberOfMonths:2,
-        minDate:0,
-        beforeShowDay:function(date){
-            let ds = $.datepicker.formatDate('yy-mm-dd', date);
-            return [!abeg_unavailable_dates.includes(ds), abeg_unavailable_dates.includes(ds)?'abeg-unavailable':'',''];
+    function calculatePrice(){
+        var roomID = $('#abeg_room').val();
+        var checkin = new Date($('#abeg_checkin').val());
+        var checkout = new Date($('#abeg_checkout').val());
+        if(!roomID || !checkin || !checkout || checkout <= checkin) {
+            $('#abeg_total_price').text('$0');
+            return;
         }
-    });
 
-    $('#abeg_room_id').change(function(){
-        let room_id=$(this).val();
-        if(!room_id) return;
-        $.post(abeg_ajax.ajax_url,{action:'abeg_get_unavailable_dates',room_id:room_id},function(r){
-            abeg_unavailable_dates=r.data||[];
-            $('#abeg_booking_dates').datepicker('refresh');
-        });
-    });
+        var nights = (checkout - checkin)/(1000*60*60*24);
+        var price = 0;
 
-    $('#abeg-room-booking-form').submit(function(e){
+        // Get room price (for simplicity using data-price)
+        price = parseFloat($('#abeg_room option:selected').data('price')) * nights;
+        $('#abeg_total_price').text('$'+price.toFixed(2));
+    }
+
+    $('#abeg_room, #abeg_checkin, #abeg_checkout').on('change keyup', calculatePrice);
+
+    // Submit form via AJAX (optional)
+    $('#abeg-booking-form').on('submit', function(e){
         e.preventDefault();
-        let form = $(this);
-        let data = form.serializeArray();
-        data.push({name:'action', value:'abeg_add_booking'});
-        $.post(abeg_ajax.ajax_url,data,function(r){
-            if(r.success){
-                $('#abeg-room-booking-msg').html('<p style="color:green">'+r.data+'</p>');
-            }else{
-                $('#abeg-room-booking-msg').html('<p style="color:red">'+r.data+'</p>');
-            }
-        });
+        alert('Booking submitted! (You can integrate AJAX here)');
     });
 });
